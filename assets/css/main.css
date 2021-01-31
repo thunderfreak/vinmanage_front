@@ -29,29 +29,65 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;}
 
-.myButton {
-	box-shadow:inset 0px 17px 7px 0px #1e94ca;
-	background-color:#2c95d6;
-	border-radius:11px;
-	border:1.5px solid #0b0e07;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Arial;
-	font-size:19px;
-	font-weight:bold;
-	padding:16px 38px;
-	text-decoration:none;
-	text-shadow:2px 1px 6px #263666;
+.glow-on-hover {
+	width: 220px;
+	height: 50px;
+	border: none;
+	outline: none;
+	color: #fff;
+	background: rgb(0, 0, 0);
+	cursor: pointer;
+	position: relative;
+	z-index: 0;
+	border-radius: 10px;
 }
-	.myButton:hover {
-		background-color:#0688fa;
-	}
-	.myButton:active {
-		position:relative;
-		top:1px;
-	}
-	
+
+.glow-on-hover:before {
+	content: '';
+	background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+	position: absolute;
+	top: -2px;
+	left:-2px;
+	background-size: 400%;
+	z-index: -1;
+	filter: blur(5px);
+	width: calc(100% + 4px);
+	height: calc(100% + 4px);
+	animation: glowing 20s linear infinite;
+	opacity: 0;
+	transition: opacity .3s ease-in-out;
+	border-radius: 10px;
+}
+
+.glow-on-hover:active {
+	color: #000
+}
+
+.glow-on-hover:active:after {
+	background: transparent;
+}
+
+.glow-on-hover:hover:before {
+	opacity: 1;
+}
+
+.glow-on-hover:after {
+	z-index: -1;
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: #111;
+	left: 0;
+	top: 0;
+	border-radius: 10px;
+}
+
+@keyframes glowing {
+	0% { background-position: 0 0; }
+	50% { background-position: 400% 0; }
+	100% { background-position: 0 0; }
+}
 
 
 
@@ -67,10 +103,10 @@ blockquote, q {
 	quotes: none;
 }
 
-	blockquote:before, blockquote:after, q:before, q:after {
-		content: '';
-		content: none;
-	}
+blockquote:before, blockquote:after, q:before, q:after {
+	content: '';
+	content: none;
+}
 
 table {
 	border-collapse: collapse;
