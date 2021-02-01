@@ -30,8 +30,8 @@ footer, header, hgroup, menu, nav, section {
 	display: block;}
 
 .glow-on-hover {
-	width: 220px;
-	height: 50px;
+	width: 160px;
+	height: 55px;
 	border: none;
 	outline: none;
 	color: #fff;
@@ -40,6 +40,7 @@ footer, header, hgroup, menu, nav, section {
 	position: relative;
 	z-index: 0;
 	border-radius: 10px;
+	font-size: medium;
 }
 
 .glow-on-hover:before {
@@ -288,7 +289,7 @@ input, select, textarea {
 		transform: translate3d(0,0,0);
 	/* Set your background with this */
 
-		background: #000000 url("images/dark.jpg") bottom left;
+		background: #000000;
 		background-repeat: repeat-x;
 		height: 100%;
 		left: 0;
